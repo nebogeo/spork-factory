@@ -1,0 +1,11 @@
+env = Environment(CCFLAGS = '-ggdb -pipe -Wall -O3 -ffast-math -Wno-unused -fPIC -DEMU', CFLAGS = '-std=gnu99')
+
+env.Append(CPPPATH = ['../core'])
+env.Append(CPPPATH = ['.'])
+
+source = ['../core/bbcore.c','emu.cpp']
+
+env.Program(source = source, target = "emu")
+
+
+

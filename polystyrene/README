@@ -1,0 +1,14 @@
+# polystyrene
+
+A program for evolving bytecode.
+
+Writes to ../core/program.h as it's running so you can upload to attiny 
+and hear what's happening.
+
+Uses JGAP: http://jgap.sourceforge.net/
+
+To make it go:
+
+ 'cp jgap.jar lib'
+ 'lein run'
+
