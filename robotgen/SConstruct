@@ -1,0 +1,12 @@
+env = Environment(CCFLAGS = '-ggdb -pipe -Wall -O3 -ffast-math -Wno-unused -fPIC -DEMU', CFLAGS = '-std=gnu99')
+
+env.Append(CPPPATH = ['../core'])
+env.Append(CPPPATH = ['.'])
+
+source = ['../core/bbcore.c',
+       'src/robotgen.cpp',
+       'src/light.cpp',
+       'src/vec2.cpp',
+       'src/robot.cpp']
+
+env.Program(source = source, target = "robotgen")
