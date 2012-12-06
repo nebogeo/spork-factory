@@ -41,6 +41,7 @@ void thread_create(thread *this) {
     this->m_stack=(u8*)malloc(sizeof(u8)*STACK_SIZE);
 
 #ifdef EMU
+    this->m_portb=0;
     this->m_output=(u8*)malloc(sizeof(u8)*OUTPUT_SIZE);
     this->m_outpos=0;
 #endif
@@ -113,7 +114,8 @@ void thread_run(thread* this, machine *m, u32 clock) {
         thread_poke(this,m,d,thread_peek(this,m,d)-1); 
     } break;
     case DUP: thread_push(this,thread_top(this)); break;
-    case OUT: portb(this,thread_pop(this)); break;
+    case OUT: set_portb(this,thread_pop(this)); break;
+    case IN: thread_push(this,get_portb(this)); break;
     default : break;
 	};   
 }
@@ -207,20 +209,29 @@ const char *byte_to_binary(int x) {
 }
 #endif
 
-void portb(thread *t, u8 s) {
+void set_portb(thread *t, u8 s) {
 #ifdef LINUX
     printf("%d ",s&0x1);
 #else
 
 #ifndef EMU
-    if (s&0x1) PORTB|=0xff;
-    else PORTB=0;
+    PORTB=s;
 #else
+//    printf("%s\n",byte_to_binary(s));
+    t->m_portb=s;
     if (t->m_outpos<OUTPUT_SIZE) {
         t->m_output[t->m_outpos++]=s&0x1;
     }
 #endif 
 #endif
+}
+
+u8 get_portb(thread *t) {
+#ifndef EMU
+    return PORTB;
+#else
+    return t->m_portb;
+#endif 
 }
 
 void write_mem(machine *m, u8 *a, u32 len) {

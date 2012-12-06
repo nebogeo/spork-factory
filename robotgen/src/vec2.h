@@ -14,6 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <math.h>
+#include <stdlib.h>
 
 #ifndef VEC2
 #define VEC2
@@ -21,10 +22,12 @@
 class vec2 
 {
 public:
+    vec2(): x(0.0f), y(0.0f) {}
     vec2(float a, float b): x(a), y(b) {}
     float dot(vec2 &other) { return x*other.x+y*other.y; }
     vec2 add(vec2 &other) { return vec2(x+other.x,y+other.y); }
     vec2 sub(vec2 &other) { return vec2(x-other.x,y-other.y); }
+    vec2 mul(float v) { return vec2(x*v,y*v); }
     vec2 div(float v) { return vec2(x/v,y/v); }
     float mag() { return sqrt(x*x+y*y); }
     vec2 normalised() { return div(mag()); }
@@ -38,5 +41,11 @@ public:
     float x;
     float y;
 };
+
+float rndf();
+float crndf();
+vec2 rndvec2();
+vec2 crndvec2();
+vec2 srndvec2();
 
 #endif

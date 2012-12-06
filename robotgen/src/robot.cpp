@@ -28,17 +28,21 @@ robot::robot(vec2 pos, vec2 dir):
 void robot::update(light &l)
 {
     // update dir and pos from motors
-    float turn=m_left_motor-m_right_motor;
-    float angle=atan(turn);
-    
-    float nx,ny;
-    nx=(m_dir.x*cos(angle))-(m_dir.y*sin(angle));
-    ny=(m_dir.x*sin(angle))+(m_dir.y*cos(angle));
-    m_dir.x=nx;
-    m_dir.y=ny;
-    
-    m_pos=m_pos.add(m_dir);
-    
+
+    if (m_left_motor>0 || m_right_motor>0)
+    {
+        float turn=m_left_motor-m_right_motor;
+        float angle=atan(turn);
+        
+        float nx,ny;
+        nx=(m_dir.x*cos(angle))-(m_dir.y*sin(angle));
+        ny=(m_dir.x*sin(angle))+(m_dir.y*cos(angle));
+        m_dir.x=nx;
+        m_dir.y=ny;
+        
+        m_pos=m_pos.add(m_dir);
+    }
+
     // update ldrs
     vec2 to_light=l.m_pos.sub(m_pos).normalised();
     vec2 sideways(m_dir.y,m_dir.x);

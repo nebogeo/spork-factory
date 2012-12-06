@@ -23,10 +23,10 @@
    org.jgap.impl.IntegerGene
    ))
 
-(def cycles 500)
+(def cycles 1000)
 (def fft-chunk-size 50)
-(def population-size 500)
-(def code-size 16)
+(def population-size 1000)
+(def code-size 32)
 
 (defn make-csv [l]
   (reduce
@@ -89,6 +89,17 @@
          :in (make-csv code)))
     " ")))
 
+;; run the processor and pass in code
+(defn run-robot [cycles code]
+  (map
+   parse-number
+   (.split
+    (:out
+     (sh "../robotgen/robotgen"
+         (str cycles)
+         :in (make-csv code)))
+    " ")))
+
 ;; make a normal list from the allele values
 (defn chromo->list [chromo]
   (defn _ [c]
@@ -116,12 +127,13 @@
   (.evolve population)
   (let [fittest (.getFittestChromosome population)
         program (chromo->list fittest)
-        output (run-core cycles fft-chunk-size program)] 
+        output (run-robot cycles program)] 
     (println fittest)
     (send-to-device program)
     (println (disassemble program))
-    (apply println (partition fft-chunk-size output))
-    (println (count output)))
+    ;(apply println (partition fft-chunk-size output))
+                                        ;(println (count output))
+    )
   (recur population))
 
 ;; ----------------------------------------------------------
@@ -189,14 +201,18 @@
    (compare-sublists res 50) ;; compare frequency over time to encourage changing sounds
    ))
 
+;; the fitness function, return value from results of program
+(defn robot-fitness [res]
+  (first res))
+
 ;; setup jgap and go!
 (let [conf (DefaultConfiguration.)
       init (proxy [FitnessFunction] []
              (evaluate [chromo]
-                       (let [res (run-core cycles fft-chunk-size (chromo->list chromo))]
+                       (let [res (run-robot cycles (chromo->list chromo))]
                          (if (and (> (count res) 0)
                                   (not (nil? (first res))))
-                           (+ 1 (fitness res))
+                           (+ 1 (robot-fitness res))
                            0))))
       sample-genes (IntegerGene. conf 0 256) ;; 8bit genes
       sample-chromosome (Chromosome. conf sample-genes code-size)]

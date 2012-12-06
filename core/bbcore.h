@@ -57,6 +57,12 @@ extern "C" {
 #define PDP 21
 #define DUP 22
 #define OUT 23
+#define IN 24
+
+#define LEFT_MOTOR 0x1
+#define RIGHT_MOTOR 0x2
+#define LEFT_EYE 0x4
+#define RIGHT_EYE 0x8
 
     typedef struct {
         u8 m_active;
@@ -65,6 +71,7 @@ extern "C" {
         int m_stack_pos;
         u8 *m_stack;
 #ifdef EMU
+        u8 m_portb;
         u8* m_output;
         u32 m_outpos;
 #endif
@@ -99,12 +106,19 @@ extern "C" {
     void machine_poke(machine *t, u32 addr, u8 data);	
     void machine_run(machine *t);
     
-    void portb(thread* t, u8 s);
+    void set_portb(thread* t, u8 s);
+    u8 get_portb(thread* t);
     
     void write_mem(machine *m, u8 *a, u32 len);
 
+#ifdef EMU
+    const char *byte_to_binary(int x);
+#endif
+
 #ifdef __cplusplus
 }
+
+
 #endif 
 
 #endif

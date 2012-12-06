@@ -15,3 +15,16 @@
 
 #include "vec2.h"
 
+float rndf() { return rand()%10000/10000.0f; }
+float crndf() { return (rndf()-0.5)*2; }
+vec2 rndvec2() { return vec2(rndf(),rndf()); }
+vec2 crndvec2() { return vec2(crndf(),crndf()); }
+vec2 srndvec2() 
+{
+    vec2 v(0,0);
+    v=crndvec2();
+    while (v.mag()>1) {
+        v=crndvec2();
+    }
+    return v;
+}

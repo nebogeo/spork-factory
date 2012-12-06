@@ -19,6 +19,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <math.h>
+#include <time.h>
 
 #include <iostream>
 #include <vector>
@@ -43,19 +44,6 @@ void split(const string& str,
         pos = str.find_first_of(delimiters, lastPos);
     }
 }
-
-u8 test[]={
-    ORG,
-    PSHL,0,
-    PSHL,0,
-    OUT,
-    OUT,
-    PSHL,1,
-    PSHL,1,
-    OUT,
-    OUT,
-    JMP,0,
-};
 
 void unit_test()
 {
@@ -89,16 +77,23 @@ void unit_test()
 
 }
 
+u32 rprogram_size=16;
+u8 rprogram[]={
+    18, 160, 147, 20, 241, 28, 12, 23, 5, 114, 249, 156, 20, 246, 1, 71
+};
 
 int main(int argc, char *argv[]) {
 
-    unit_test();
+//    unit_test();
 
+//    srand(time(NULL));
 
-/*    machine *m=(machine *)malloc(sizeof(machine));
+    machine *m=(machine *)malloc(sizeof(machine));
     machine_create(m);
     // make 1 thread active
     thread_set_active(&m->m_threads[0],1);
+
+//    write_mem(m,rprogram,rprogram_size);
 
     // load the code from stdin
     string inp;
@@ -112,26 +107,51 @@ int main(int argc, char *argv[]) {
         machine_poke(m,count++,atof(i->c_str()));
     }
 
+
+    for(vector<string>::iterator i=splitted.begin();
+        i!=splitted.end(); ++i) {
+        machine_poke(m,count++,atof(i->c_str()));
+    }
+
     // read in the parameters
     u32 cycles=atof(argv[1]);
-    u32 fft_chunk_size=atof(argv[2]);
+    float fitness=0;
 
-    // pre-run/warm up
-    for(u32 i=0; i<5000; i++) {
-        machine_run(m);
+    // do multiple runs with the same code
+    for (u32 run=0; run<10; run++)
+    {
+        // create a robot model (random position and direction)
+        robot r(srndvec2().mul(100),srndvec2());
+        light l(srndvec2().mul(100));
+        
+        //m->m_threads[0].m_portb=0xff;
+
+        // run!
+        for(u32 i=0; i<cycles; i++) {
+            r.update(l);
+            
+            if (r.m_left_eye) m->m_threads[0].m_portb|=LEFT_EYE;
+            else m->m_threads[0].m_portb&=~LEFT_EYE;
+            if (r.m_right_eye) m->m_threads[0].m_portb|=RIGHT_EYE;
+            else m->m_threads[0].m_portb&=~RIGHT_EYE;
+            
+//        cerr<<byte_to_binary(m->m_threads[0].m_portb)<<endl;
+            
+            machine_run(m);
+            
+            r.m_left_motor=0.1;
+            r.m_right_motor=0.1;
+            if ((m->m_threads[0].m_portb&LEFT_MOTOR)>0) r.m_left_motor=0;
+            if ((m->m_threads[0].m_portb&RIGHT_MOTOR)>0) r.m_right_motor=0;
+            
+//            cout<<r.m_pos.x<<" "<<r.m_pos.y<<endl;
+        }
+
+        fitness+=r.m_fitness;
     }
 
-    // reset output values
-    for (u32 i=0; i<OUTPUT_SIZE; i++) m->m_threads[0].m_output[i]=0;
-    m->m_threads[0].m_outpos=0;
-
-    // run!
-    for(u32 i=0; i<cycles; i++) {
-        machine_run(m);
-    }
-
-*/
-
+    // return average fitness
+    cout<<fitness/10.0f<<endl;
   
 	return 0;
 }
