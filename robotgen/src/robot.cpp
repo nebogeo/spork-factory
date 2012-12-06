@@ -28,15 +28,16 @@ robot::robot(vec2 pos, vec2 dir):
 void robot::update(light &l)
 {
     // update dir and pos from motors
-    float turn=m_left_motor-m_right_motor;
-    float angle=atan(turn);
+    float relative_speed_diff=m_left_motor-m_right_motor;
+    float angle=atan(relative_speed_diff);
     
-    float nx,ny;
-    nx=(m_dir.x*cos(angle))-(m_dir.y*sin(angle));
-    ny=(m_dir.x*sin(angle))+(m_dir.y*cos(angle));
+    // rotate the direction by the angle
+    float nx=(m_dir.x*cos(angle))-(m_dir.y*sin(angle));
+    float ny=(m_dir.x*sin(angle))+(m_dir.y*cos(angle));
     m_dir.x=nx;
     m_dir.y=ny;
     
+    // update the position
     m_pos=m_pos.add(m_dir);
     
     // update ldrs
