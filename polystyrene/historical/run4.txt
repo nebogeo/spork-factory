@@ -1,0 +1,429 @@
+0
+#<Chromosome Size:16, Fitness value:39.1859016418457, Alleles:[IntegerGene(0
+,255)=243, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)
+=122, IntegerGene(0,255)=114, IntegerGene(0,255)=230, IntegerGene(0,255)=6, 
+IntegerGene(0,255)=147, IntegerGene(0,255)=83, IntegerGene(0,255)=218, Integ
+erGene(0,255)=56, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene(
+0,255)=22, IntegerGene(0,255)=67, IntegerGene(0,255)=72], Application data:n
+ull>                                                                       
+(243 24 138 122 114 230 6 147 83 218 56 20 95 22 67 72)
+243 rmot 138 122 114 230 psh 147 83 218 56 pip 95 dup 67 72 
+1
+#<Chromosome Size:16, Fitness value:39.55950164794922, Alleles:[IntegerGene(
+0,255)=243, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255
+)=122, IntegerGene(0,255)=114, IntegerGene(0,255)=230, IntegerGene(0,255)=6,
+ IntegerGene(0,255)=147, IntegerGene(0,255)=83, IntegerGene(0,255)=218, Inte
+gerGene(0,255)=56, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene
+(0,255)=139, IntegerGene(0,255)=24, IntegerGene(0,255)=137], Application dat
+a:null>                                                                    
+(243 24 138 122 114 230 6 147 83 218 56 20 95 139 24 137)
+243 rmot 138 122 114 230 psh 147 83 218 56 pip 95 139 rmot 137 
+2
+#<Chromosome Size:16, Fitness value:39.55950164794922, Alleles:[IntegerGene(
+0,255)=243, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255
+)=122, IntegerGene(0,255)=114, IntegerGene(0,255)=230, IntegerGene(0,255)=6,
+ IntegerGene(0,255)=147, IntegerGene(0,255)=83, IntegerGene(0,255)=218, Inte
+gerGene(0,255)=56, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene
+(0,255)=212, IntegerGene(0,255)=24, IntegerGene(0,255)=137], Application dat
+a:null>                                                                    
+(243 24 138 122 114 230 6 147 83 218 56 20 95 212 24 137)
+243 rmot 138 122 114 230 psh 147 83 218 56 pip 95 212 rmot 137 
+3
+#<Chromosome Size:16, Fitness value:39.55950164794922, Alleles:[IntegerGene(
+0,255)=45, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)
+=122, IntegerGene(0,255)=114, IntegerGene(0,255)=230, IntegerGene(0,255)=6, 
+IntegerGene(0,255)=147, IntegerGene(0,255)=83, IntegerGene(0,255)=218, Integ
+erGene(0,255)=56, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene(
+0,255)=212, IntegerGene(0,255)=24, IntegerGene(0,255)=137], Application data
+:null>                                                                     
+(45 24 138 122 114 230 6 147 83 218 56 20 95 212 24 137)
+45 rmot 138 122 114 230 psh 147 83 218 56 pip 95 212 rmot 137 
+4
+#<Chromosome Size:16, Fitness value:39.55950164794922, Alleles:[IntegerGene(
+0,255)=243, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255
+)=122, IntegerGene(0,255)=114, IntegerGene(0,255)=230, IntegerGene(0,255)=6,
+ IntegerGene(0,255)=147, IntegerGene(0,255)=83, IntegerGene(0,255)=218, Inte
+gerGene(0,255)=56, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene
+(0,255)=212, IntegerGene(0,255)=24, IntegerGene(0,255)=173], Application dat
+a:null>                                                                    
+(243 24 138 122 114 230 6 147 83 218 56 20 95 212 24 173)
+243 rmot 138 122 114 230 psh 147 83 218 56 pip 95 212 rmot 173 
+5
+#<Chromosome Size:16, Fitness value:41.75630187988281, Alleles:[IntegerGene(
+0,255)=52, IntegerGene(0,255)=202, IntegerGene(0,255)=18, IntegerGene(0,255)
+=230, IntegerGene(0,255)=151, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Intege
+rGene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=65, IntegerGene
+(0,255)=24, IntegerGene(0,255)=239, IntegerGene(0,255)=24], Application data
+:null>                                                                     
+(52 202 18 230 151 114 72 26 95 23 153 194 65 24 239 24)
+52 202 ror 230 151 114 72 reye 95 lmot 153 194 65 rmot 239 rmot 
+6
+#<Chromosome Size:16, Fitness value:41.75630187988281, Alleles:[IntegerGene(
+0,255)=52, IntegerGene(0,255)=106, IntegerGene(0,255)=18, IntegerGene(0,255)
+=230, IntegerGene(0,255)=151, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Intege
+rGene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=65, IntegerGene
+(0,255)=24, IntegerGene(0,255)=239, IntegerGene(0,255)=24], Application data
+:null>                                                                     
+(52 106 18 230 151 114 72 26 95 23 153 194 65 24 239 24)
+52 106 ror 230 151 114 72 reye 95 lmot 153 194 65 rmot 239 rmot 
+7
+#<Chromosome Size:16, Fitness value:42.15409851074219, Alleles:[IntegerGene(
+0,255)=243, IntegerGene(0,255)=24, IntegerGene(0,255)=40, IntegerGene(0,255)
+=122, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Intege
+rGene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=65, IntegerGene
+(0,255)=24, IntegerGene(0,255)=239, IntegerGene(0,255)=24], Application data
+:null>                                                                     
+(243 24 40 122 114 114 72 26 95 23 153 194 65 24 239 24)
+243 rmot 40 122 114 114 72 reye 95 lmot 153 194 65 rmot 239 rmot 
+8
+#<Chromosome Size:16, Fitness value:42.15409851074219, Alleles:[IntegerGene(
+0,255)=243, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255
+)=122, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72
+, IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Integ
+erGene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=65, IntegerGen
+e(0,255)=24, IntegerGene(0,255)=239, IntegerGene(0,255)=24], Application dat
+a:null>                                                                    
+(243 24 138 122 114 114 72 26 95 23 153 194 65 24 239 24)
+243 rmot 138 122 114 114 72 reye 95 lmot 153 194 65 rmot 239 rmot 
+9
+#<Chromosome Size:16, Fitness value:43.75640106201172, Alleles:[IntegerGene(
+0,255)=37, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)
+=230, IntegerGene(0,255)=151, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Intege
+rGene(0,255)=234, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene(
+0,255)=22, IntegerGene(0,255)=67, IntegerGene(0,255)=72], Application data:n
+ull>                                                                       
+(37 24 138 230 151 114 72 26 95 23 234 20 95 22 67 72)
+37 rmot 138 230 151 114 72 reye 95 lmot 234 pip 95 dup 67 72 
+10
+#<Chromosome Size:16, Fitness value:63.281700134277344, Alleles:[IntegerGene
+(0,255)=243, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,25
+5)=122, IntegerGene(0,255)=153, IntegerGene(0,255)=10, IntegerGene(0,255)=72
+, IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Integ
+erGene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=65, IntegerGen
+e(0,255)=24, IntegerGene(0,255)=239, IntegerGene(0,255)=17], Application dat
+a:null>                                                                    
+(243 24 138 122 153 10 72 26 95 23 153 194 65 24 239 17)
+243 rmot 138 122 153 add 72 reye 95 lmot 153 194 65 rmot 239 not 
+11
+#<Chromosome Size:16, Fitness value:63.281700134277344, Alleles:[IntegerGene
+(0,255)=243, IntegerGene(0,255)=24, IntegerGene(0,255)=40, IntegerGene(0,255
+)=122, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72
+, IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Integ
+erGene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=65, IntegerGen
+e(0,255)=24, IntegerGene(0,255)=239, IntegerGene(0,255)=17], Application dat
+a:null>                                                                    
+(243 24 40 122 114 114 72 26 95 23 153 194 65 24 239 17)
+243 rmot 40 122 114 114 72 reye 95 lmot 153 194 65 rmot 239 not 
+12
+#<Chromosome Size:16, Fitness value:69.22540283203125, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=195, IntegerGene(0,255)
+=143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=55, IntegerGene(0,255)=23, Intege
+rGene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=65, IntegerGene
+(0,255)=144, IntegerGene(0,255)=239, IntegerGene(0,255)=24], Application dat
+a:null>                                                                    
+(25 24 195 143 114 114 72 26 55 23 153 194 65 144 239 24)
+leye rmot 195 143 114 114 72 reye 55 lmot 153 194 65 144 239 rmot 
+13
+#<Chromosome Size:16, Fitness value:69.22540283203125, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=195, IntegerGene(0,255)
+=143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=55, IntegerGene(0,255)=23, Intege
+rGene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=107, IntegerGen
+e(0,255)=144, IntegerGene(0,255)=99, IntegerGene(0,255)=24], Application dat
+a:null>                                                                    
+(25 24 195 143 114 114 72 26 55 23 153 194 107 144 99 24)
+leye rmot 195 143 114 114 72 reye 55 lmot 153 194 107 144 99 rmot 
+14
+#<Chromosome Size:16, Fitness value:70.80480194091797, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)
+=122, IntegerGene(0,255)=151, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Intege
+rGene(0,255)=153, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene(
+0,255)=139, IntegerGene(0,255)=24, IntegerGene(0,255)=72], Application data:
+null>                                                                      
+(25 24 138 122 151 114 72 26 95 23 153 20 95 139 24 72)
+leye rmot 138 122 151 114 72 reye 95 lmot 153 pip 95 139 rmot 72 
+15
+#<Chromosome Size:16, Fitness value:70.80480194091797, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)
+=122, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Intege
+rGene(0,255)=153, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene(
+0,255)=139, IntegerGene(0,255)=24, IntegerGene(0,255)=137], Application data
+:null>                                                                     
+(25 24 138 122 114 114 72 26 95 23 153 20 95 139 24 137)
+leye rmot 138 122 114 114 72 reye 95 lmot 153 pip 95 139 rmot 137 
+16
+#<Chromosome Size:16, Fitness value:70.80480194091797, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=88, IntegerGene(0,255)=
+219, IntegerGene(0,255)=151, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Integer
+Gene(0,255)=153, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene(0
+,255)=139, IntegerGene(0,255)=24, IntegerGene(0,255)=72], Application data:n
+ull>                                                                       
+(25 24 88 219 151 114 72 26 95 23 153 20 95 139 24 72)
+leye rmot 88 219 151 114 72 reye 95 lmot 153 pip 95 139 rmot 72 
+17
+#<Chromosome Size:16, Fitness value:78.82859802246094, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=195, IntegerGene(0,255)
+=122, IntegerGene(0,255)=151, IntegerGene(0,255)=25, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Integer
+Gene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=65, IntegerGene(
+0,255)=24, IntegerGene(0,255)=239, IntegerGene(0,255)=24], Application data:
+null>                                                                      
+(25 24 195 122 151 25 72 26 95 23 153 194 65 24 239 24)
+leye rmot 195 122 151 leye 72 reye 95 lmot 153 194 65 rmot 239 rmot 
+18
+#<Chromosome Size:16, Fitness value:88.27050018310547, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=158, IntegerGene(0,255)
+=122, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Intege
+rGene(0,255)=153, IntegerGene(0,255)=208, IntegerGene(0,255)=45, IntegerGene
+(0,255)=32, IntegerGene(0,255)=132, IntegerGene(0,255)=4], Application data:
+null>                                                                      
+(25 24 158 122 114 114 72 26 95 23 153 208 45 32 132 4)
+leye rmot 158 122 114 114 72 reye 95 lmot 153 208 45 32 132 jmpz 0 
+19
+#<Chromosome Size:16, Fitness value:88.48419952392578, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=136, IntegerGene(0,255)
+=116, IntegerGene(0,255)=75, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Integer
+Gene(0,255)=153, IntegerGene(0,255)=29, IntegerGene(0,255)=95, IntegerGene(0
+,255)=4, IntegerGene(0,255)=229, IntegerGene(0,255)=24], Application data:nu
+ll>                                                                        
+(25 24 136 116 75 114 72 26 95 23 153 29 95 4 229 24)
+leye rmot 136 116 75 114 72 reye 95 lmot 153 29 95 jmpz 229 rmot 
+20
+#<Chromosome Size:16, Fitness value:90.72899627685547, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)
+=122, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Intege
+rGene(0,255)=153, IntegerGene(0,255)=20, IntegerGene(0,255)=95, IntegerGene(
+0,255)=124, IntegerGene(0,255)=132, IntegerGene(0,255)=4], Application data:
+null>                                                                      
+(25 24 138 122 114 114 72 26 95 23 153 20 95 124 132 4)
+leye rmot 138 122 114 114 72 reye 95 lmot 153 pip 95 124 132 jmpz 0 
+21
+#<Chromosome Size:16, Fitness value:90.72899627685547, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=104, IntegerGene(0,255)
+=142, IntegerGene(0,255)=114, IntegerGene(0,255)=67, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Integer
+Gene(0,255)=153, IntegerGene(0,255)=20, IntegerGene(0,255)=45, IntegerGene(0
+,255)=32, IntegerGene(0,255)=132, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 104 142 114 67 72 26 95 23 153 20 45 32 132 4)
+leye rmot 104 142 114 67 72 reye 95 lmot 153 pip 45 32 132 jmpz 0 
+22
+#<Chromosome Size:16, Fitness value:91.47270202636719, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=136, IntegerGene(0,255)
+=116, IntegerGene(0,255)=75, IntegerGene(0,255)=135, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=95, IntegerGene(0,255)=23, Integer
+Gene(0,255)=153, IntegerGene(0,255)=29, IntegerGene(0,255)=71, IntegerGene(0
+,255)=4, IntegerGene(0,255)=247, IntegerGene(0,255)=24], Application data:nu
+ll>                                                                        
+(25 24 136 116 75 135 72 26 95 23 153 29 71 4 247 24)
+leye rmot 136 116 75 135 72 reye 95 lmot 153 29 71 jmpz 247 rmot 
+23
+#<Chromosome Size:16, Fitness value:92.76069641113281, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=195, IntegerGene(0,255)
+=143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Intege
+rGene(0,255)=199, IntegerGene(0,255)=194, IntegerGene(0,255)=107, IntegerGen
+e(0,255)=124, IntegerGene(0,255)=132, IntegerGene(0,255)=4], Application dat
+a:null>                                                                    
+(25 24 195 143 114 114 72 26 23 15 199 194 107 124 132 4)
+leye rmot 195 143 114 114 72 reye lmot or 199 194 107 124 132 jmpz 0 
+24
+#<Chromosome Size:16, Fitness value:92.76069641113281, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=195, IntegerGene(0,255)
+=143, IntegerGene(0,255)=30, IntegerGene(0,255)=134, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=45, IntegerGene(
+0,255)=32, IntegerGene(0,255)=132, IntegerGene(0,255)=4], Application data:n
+ull>                                                                       
+(25 24 195 143 30 134 72 26 23 15 153 194 45 32 132 4)
+leye rmot 195 143 30 134 72 reye lmot or 153 194 45 32 132 jmpz 0 
+25
+#<Chromosome Size:16, Fitness value:92.76069641113281, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)
+=143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=34,
+ IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Intege
+rGene(0,255)=199, IntegerGene(0,255)=194, IntegerGene(0,255)=45, IntegerGene
+(0,255)=124, IntegerGene(0,255)=132, IntegerGene(0,255)=4], Application data
+:null>                                                                     
+(25 24 138 143 114 114 34 26 23 15 199 194 45 124 132 4)
+leye rmot 138 143 114 114 34 reye lmot or 199 194 45 124 132 jmpz 0 
+26
+#<Chromosome Size:16, Fitness value:92.76069641113281, Alleles:[IntegerGene(
+0,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=108, IntegerGene(0,255)
+=122, IntegerGene(0,255)=30, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=199, IntegerGene(0,255)=194, IntegerGene(0,255)=107, IntegerGene
+(0,255)=144, IntegerGene(0,255)=132, IntegerGene(0,255)=4], Application data
+:null>                                                                     
+(25 24 108 122 30 114 72 26 23 15 199 194 107 144 132 4)
+leye rmot 108 122 30 114 72 reye lmot or 199 194 107 144 132 jmpz 0 
+27
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)=
+143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=153, IntegerGene(0,255)=214, IntegerGene(0,255)=45, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 138 143 114 114 72 26 23 15 153 214 45 32 24 4)
+leye rmot 138 143 114 114 72 reye lmot or 153 214 45 32 rmot jmpz 0 
+28
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)=
+143, IntegerGene(0,255)=114, IntegerGene(0,255)=87, IntegerGene(0,255)=72, I
+ntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, IntegerG
+ene(0,255)=199, IntegerGene(0,255)=194, IntegerGene(0,255)=107, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 138 143 114 87 72 26 23 15 199 194 107 32 24 4)
+leye rmot 138 143 114 87 72 reye lmot or 199 194 107 32 rmot jmpz 0 
+29
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=195, IntegerGene(0,255)=
+143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=153, IntegerGene(0,255)=214, IntegerGene(0,255)=45, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 195 143 114 114 72 26 23 15 153 214 45 32 24 4)
+leye rmot 195 143 114 114 72 reye lmot or 153 214 45 32 rmot jmpz 0 
+30
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=195, IntegerGene(0,255)=
+143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=199, IntegerGene(0,255)=194, IntegerGene(0,255)=107, IntegerGene
+(0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:n
+ull>                                                                       
+(25 24 195 143 114 114 72 26 23 15 199 194 107 32 24 4)
+leye rmot 195 143 114 114 72 reye lmot or 199 194 107 32 rmot jmpz 0 
+31
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)=
+143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=153, IntegerGene(0,255)=214, IntegerGene(0,255)=45, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 138 143 114 114 72 26 23 15 153 214 45 32 24 4)
+leye rmot 138 143 114 114 72 reye lmot or 153 214 45 32 rmot jmpz 0 
+32
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=135, IntegerGene(0,255)=
+143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=153, IntegerGene(0,255)=214, IntegerGene(0,255)=45, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 135 143 114 114 72 26 23 15 153 214 45 32 24 4)
+leye rmot 135 143 114 114 72 reye lmot or 153 214 45 32 rmot jmpz 0 
+33
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=231, IntegerGene(0,255)=
+143, IntegerGene(0,255)=246, IntegerGene(0,255)=123, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=199, IntegerGene(0,255)=194, IntegerGene(0,255)=107, IntegerGene
+(0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:n
+ull>                                                                       
+(25 24 231 143 246 123 72 26 23 15 199 194 107 32 24 4)
+leye rmot 231 143 246 123 72 reye lmot or 199 194 107 32 rmot jmpz 0 
+34
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)=
+143, IntegerGene(0,255)=114, IntegerGene(0,255)=116, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=153, IntegerGene(0,255)=214, IntegerGene(0,255)=45, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 138 143 114 116 72 26 23 15 153 214 45 32 24 4)
+leye rmot 138 143 114 116 72 reye lmot or 153 214 45 32 rmot jmpz 0 
+35
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=195, IntegerGene(0,255)=
+143, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=145, Intege
+rGene(0,255)=199, IntegerGene(0,255)=250, IntegerGene(0,255)=107, IntegerGen
+e(0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:
+null>                                                                      
+(25 24 195 143 114 114 72 26 23 145 199 250 107 32 24 4)
+leye rmot 195 143 114 114 72 reye lmot 145 199 250 107 32 rmot jmpz 0 
+36
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)=
+196, IntegerGene(0,255)=114, IntegerGene(0,255)=44, IntegerGene(0,255)=122, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=247, IntegerGene(0,255)=31, IntegerGene(0,255)=107, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 138 196 114 44 122 26 23 15 247 31 107 32 24 4)
+leye rmot 138 196 114 44 122 reye lmot or 247 31 107 32 rmot jmpz 0 
+37              
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=225, IntegerGene(0,255)=
+169, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=199, IntegerGene(0,255)=194, IntegerGene(0,255)=107, IntegerGene
+(0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:n
+ull>                                                                       
+(25 24 225 169 114 114 72 26 23 15 199 194 107 32 24 4)
+leye rmot 225 169 114 114 72 reye lmot or 199 194 107 32 rmot jmpz 0 
+38
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)=
+101, IntegerGene(0,255)=114, IntegerGene(0,255)=87, IntegerGene(0,255)=72, I
+ntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, IntegerG
+ene(0,255)=199, IntegerGene(0,255)=214, IntegerGene(0,255)=169, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 138 101 114 87 72 26 23 15 199 214 169 32 24 4)
+leye rmot 138 101 114 87 72 reye lmot or 199 214 169 32 rmot jmpz 0 
+39
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=61, IntegerGene(0,255)=1
+43, IntegerGene(0,255)=34, IntegerGene(0,255)=114, IntegerGene(0,255)=72, In
+tegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, IntegerGe
+ne(0,255)=56, IntegerGene(0,255)=252, IntegerGene(0,255)=45, IntegerGene(0,2
+55)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:null>
+(25 24 61 143 34 114 72 26 23 15 56 252 45 32 24 4)
+leye rmot 61 143 34 114 72 reye lmot or 56 252 45 32 rmot jmpz 0 
+40
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=172, IntegerGene(0,255)=
+116, IntegerGene(0,255)=75, IntegerGene(0,255)=87, IntegerGene(0,255)=160, I
+ntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, IntegerG
+ene(0,255)=153, IntegerGene(0,255)=194, IntegerGene(0,255)=107, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 172 116 75 87 160 26 23 15 153 194 107 32 24 4)
+leye rmot 172 116 75 87 160 reye lmot or 153 194 107 32 rmot jmpz 0 
+41
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=138, IntegerGene(0,255)=
+143, IntegerGene(0,255)=114, IntegerGene(0,255)=226, IntegerGene(0,255)=80, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=199, IntegerGene(0,255)=194, IntegerGene(0,255)=150, IntegerGene
+(0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:n
+ull>                                                                       
+(25 24 138 143 114 226 80 26 23 15 199 194 150 32 24 4)
+leye rmot 138 143 114 226 80 reye lmot or 199 194 150 32 rmot jmpz 0 
+42
+#<Chromosome Size:16, Fitness value:93.7500991821289, Alleles:[IntegerGene(0
+,255)=25, IntegerGene(0,255)=24, IntegerGene(0,255)=132, IntegerGene(0,255)=
+169, IntegerGene(0,255)=114, IntegerGene(0,255)=114, IntegerGene(0,255)=72, 
+IntegerGene(0,255)=26, IntegerGene(0,255)=23, IntegerGene(0,255)=15, Integer
+Gene(0,255)=250, IntegerGene(0,255)=167, IntegerGene(0,255)=45, IntegerGene(
+0,255)=32, IntegerGene(0,255)=24, IntegerGene(0,255)=4], Application data:nu
+ll>                                                                        
+(25 24 132 169 114 114 72 26 23 15 250 167 45 32 24 4)
+leye rmot 132 169 114 114 72 reye lmot or 250 167 45 32 rmot jmpz 0 
