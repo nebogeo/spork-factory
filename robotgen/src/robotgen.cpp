@@ -77,15 +77,26 @@ void unit_test()
 
 }
 
-u32 rprogram_size=16;
+u32 rprogram_size=32;
 u8 rprogram[]={
-    18, 160, 147, 20, 241, 28, 12, 23, 5, 114, 249, 156, 20, 246, 1, 71
+//    211, 155, 2, 126, 24, 54, 12, 90, 153, 154, 85, 25, 155, 51, 73, 9
+
+//    153, 215, 190, 169, 2, 23, 140, 8, 199, 102, 240, 25, 24, 186, 145, 32, 190, 19, 70, 147, 23, 96, 25, 3, 28, 135, 116, 247, 150, 246, 33, 116
+
+    LEYE, RMOT, REYE, LMOT, JMP, 0
 };
+
+//#define TEST_MODE
+
+#ifdef TEST_MODE
+#define N_RUNS 10
+#else
+#define N_RUNS 10
+#endif
 
 int main(int argc, char *argv[]) {
 
 //    unit_test();
-
 //    srand(time(NULL));
 
     machine *m=(machine *)malloc(sizeof(machine));
@@ -93,8 +104,9 @@ int main(int argc, char *argv[]) {
     // make 1 thread active
     thread_set_active(&m->m_threads[0],1);
 
-//    write_mem(m,rprogram,rprogram_size);
-
+#ifdef TEST_MODE
+    write_mem(m,rprogram,rprogram_size);
+#else
     // load the code from stdin
     string inp;
     cin>>inp;
@@ -112,17 +124,20 @@ int main(int argc, char *argv[]) {
         i!=splitted.end(); ++i) {
         machine_poke(m,count++,atof(i->c_str()));
     }
+#endif
 
     // read in the parameters
     u32 cycles=atof(argv[1]);
     float fitness=0;
 
+    light l(vec2(0,0));
+
     // do multiple runs with the same code
-    for (u32 run=0; run<10; run++)
+    for (u32 run=0; run<N_RUNS; run++)
     {
         // create a robot model (random position and direction)
-        robot r(srndvec2().mul(100),srndvec2());
-        light l(srndvec2().mul(100));
+//        robot r(vec2(-100,-10),vec2(1,0));
+        robot r(srndvec2().mul(100),srndvec2().normalised());
         
         //m->m_threads[0].m_portb=0xff;
 
@@ -135,7 +150,9 @@ int main(int argc, char *argv[]) {
             if (r.m_right_eye) m->m_threads[0].m_portb|=RIGHT_EYE;
             else m->m_threads[0].m_portb&=~RIGHT_EYE;
             
-//        cerr<<byte_to_binary(m->m_threads[0].m_portb)<<endl;
+            //cerr<<"left "<<r.m_left_eye<<endl;
+            //cerr<<"right "<<r.m_right_eye<<endl;
+            //cerr<<byte_to_binary(m->m_threads[0].m_portb)<<endl;
             
             machine_run(m);
             
@@ -143,16 +160,21 @@ int main(int argc, char *argv[]) {
             r.m_right_motor=0.1;
             if ((m->m_threads[0].m_portb&LEFT_MOTOR)>0) r.m_left_motor=0;
             if ((m->m_threads[0].m_portb&RIGHT_MOTOR)>0) r.m_right_motor=0;
-            
-//            cout<<r.m_pos.x<<" "<<r.m_pos.y<<endl;
+
+#ifdef TEST_MODE
+            cout<<r.m_pos.x<<" "<<r.m_pos.y<<endl;
+#endif
         }
 
         fitness+=r.m_fitness;
     }
 
     // return average fitness
-    cout<<fitness/10.0f<<endl;
-  
+    fitness/=(float)N_RUNS;
+    if (fitness>100) fitness=0;
+    else fitness=100-fitness;
+    cout<<fitness<<endl;
+
 	return 0;
 }
 

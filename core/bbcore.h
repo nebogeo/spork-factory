@@ -56,13 +56,15 @@ extern "C" {
 #define PIP 20
 #define PDP 21
 #define DUP 22
-#define OUT 23
-#define IN 24
+#define LMOT 23
+#define RMOT 24
+#define LEYE 25
+#define REYE 26
 
-#define LEFT_MOTOR 0x1
-#define RIGHT_MOTOR 0x2
-#define LEFT_EYE 0x4
-#define RIGHT_EYE 0x8
+#define LEFT_EYE    0x01
+#define RIGHT_EYE   0x02
+#define RIGHT_MOTOR 0x08
+#define LEFT_MOTOR  0x10
 
     typedef struct {
         u8 m_active;
@@ -71,9 +73,9 @@ extern "C" {
         int m_stack_pos;
         u8 *m_stack;
 #ifdef EMU
-        u8 m_portb;
         u8* m_output;
         u32 m_outpos;
+        u8 m_portb;
 #endif
     } thread;
     
@@ -108,6 +110,8 @@ extern "C" {
     
     void set_portb(thread* t, u8 s);
     u8 get_portb(thread* t);
+    u8 get_portb_bit(thread *t, u8 mask);
+    void set_portb_bit(thread *t, u8 mask, u8 v);
     
     void write_mem(machine *m, u8 *a, u32 len);
 

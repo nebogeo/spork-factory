@@ -114,8 +114,10 @@ void thread_run(thread* this, machine *m, u32 clock) {
         thread_poke(this,m,d,thread_peek(this,m,d)-1); 
     } break;
     case DUP: thread_push(this,thread_top(this)); break;
-    case OUT: set_portb(this,thread_pop(this)); break;
-    case IN: thread_push(this,get_portb(this)); break;
+    case LMOT: set_portb_bit(this,LEFT_MOTOR,!(thread_pop(this)&0x1)); break;
+    case RMOT: set_portb_bit(this,RIGHT_MOTOR,!(thread_pop(this)&0x1)); break;
+    case LEYE: thread_push(this,get_portb_bit(this,LEFT_EYE)); break;
+    case REYE: thread_push(this,get_portb_bit(this,RIGHT_EYE)); break;
     default : break;
 	};   
 }
@@ -232,6 +234,17 @@ u8 get_portb(thread *t) {
 #else
     return t->m_portb;
 #endif 
+}
+
+u8 get_portb_bit(thread *t, u8 mask) {
+    if ((get_portb(t)&mask)>0) return 1;
+    return 0;
+}
+
+void set_portb_bit(thread *t, u8 mask, u8 v) {
+    u8 p=get_portb(t);
+    if (v>0) set_portb(t,p|mask);
+    else set_portb(t,p&(~mask));
 }
 
 void write_mem(machine *m, u8 *a, u32 len) {

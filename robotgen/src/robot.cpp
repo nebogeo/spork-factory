@@ -13,7 +13,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+#include <iostream>
 #include "robot.h" 
+using namespace std;
 
 robot::robot(vec2 pos, vec2 dir): 
     m_left_eye(false),
@@ -28,24 +30,23 @@ robot::robot(vec2 pos, vec2 dir):
 void robot::update(light &l)
 {
     // update dir and pos from motors
-
     if (m_left_motor>0 || m_right_motor>0)
     {
-        float turn=m_left_motor-m_right_motor;
-        float angle=atan(turn);
-        
+        float turn=m_right_motor-m_left_motor;
+        float angle=atan(turn);        
         float nx,ny;
         nx=(m_dir.x*cos(angle))-(m_dir.y*sin(angle));
         ny=(m_dir.x*sin(angle))+(m_dir.y*cos(angle));
         m_dir.x=nx;
         m_dir.y=ny;
-        
+        m_dir=m_dir.normalised();
+
         m_pos=m_pos.add(m_dir);
     }
 
     // update ldrs
     vec2 to_light=l.m_pos.sub(m_pos).normalised();
-    vec2 sideways(m_dir.y,m_dir.x);
+    vec2 sideways(-m_dir.y,m_dir.x);
     float d=to_light.dot(sideways);
     m_left_eye=false;        
     m_right_eye=false;
