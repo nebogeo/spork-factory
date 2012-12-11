@@ -211,40 +211,31 @@ const char *byte_to_binary(int x) {
 }
 #endif
 
-void set_portb(thread *t, u8 s) {
-#ifdef LINUX
-    printf("%d ",s&0x1);
-#else
-
+u8 get_pinb(thread *t) {
 #ifndef EMU
-    PORTB=s;
-#else
-//    printf("%s\n",byte_to_binary(s));
-    t->m_portb=s;
-    if (t->m_outpos<OUTPUT_SIZE) {
-        t->m_output[t->m_outpos++]=s&0x1;
-    }
-#endif 
-#endif
-}
-
-u8 get_portb(thread *t) {
-#ifndef EMU
-    return PORTB;
+    return PINB;
 #else
     return t->m_portb;
 #endif 
 }
 
 u8 get_portb_bit(thread *t, u8 mask) {
-    if ((get_portb(t)&mask)>0) return 1;
+    if ((get_pinb(t)&mask)>0) return 1;
     return 0;
 }
 
 void set_portb_bit(thread *t, u8 mask, u8 v) {
-    u8 p=get_portb(t);
-    if (v>0) set_portb(t,p|mask);
-    else set_portb(t,p&(~mask));
+#ifndef EMU    
+    if (v) PORTB|=mask;
+    else PORTB&=~mask;
+#else
+    if (v) t->m_portb|=mask;
+    else t->m_portb&=~mask;
+
+    if (t->m_outpos<OUTPUT_SIZE) {
+        t->m_output[t->m_outpos++]=v;
+    }
+#endif
 }
 
 void write_mem(machine *m, u8 *a, u32 len) {
@@ -289,37 +280,52 @@ u8 code[]={
 
 //    2, 22, 23, 23, 21, 10, 69, 2, 23, 17, 206, 247, 23, 7, 10, 23, 23, 12,
 //    68, 23, 23, 23, 14, 4, 249, 227, 118, 121, 96, 50, 91, 213
+
+
 };
+
+
+
 
 int main(void)
 {
+#ifndef LINUX
+
+    DDRB = 0x00;
+    DDRB |= LEFT_MOTOR;
+    DDRB |= RIGHT_MOTOR;
+    DDRB |= LED;
+
+    // activate pull up resistors
+    PORTB|=LEFT_EYE;
+    PORTB|=RIGHT_EYE;
+
+//    PORTB|=LEFT_MOTOR;
+//    PORTB|=RIGHT_MOTOR;
+
+#endif
+
     machine *m=(machine *)malloc(sizeof(machine));
     machine_create(m);
 
     write_mem(m,program,program_size);
 
-    thread_set_active(&m->m_threads[0],1);
-
-#ifndef LINUX
-
-    DDRB |= _BV( PB0 );
-    DDRB |= _BV( PB1 );
-    DDRB |= _BV( PB2 );
-    DDRB |= _BV( PB3 );
-    DDRB |= _BV( PB4 );
-    DDRB |= _BV( PB5 );
-//    DDRB |= _BV( PB6 );
-//    DDRB |= _BV( PB7 );
-
-#endif
+    thread *t=&m->m_threads[0];
+    thread_set_active(t,1);
 
     u32 count=0;
-    while( count<10000 ) { 
+    while(1) { 
+
+        if (get_portb_bit(t,LEFT_EYE))
+            set_portb_bit(t, LED, 1);
+        else set_portb_bit(t, LED, 0);
+
+//        set_portb_bit(t,LED,count%5000<2500);
+//        set_portb_bit(t,LEFT_MOTOR,count%500<250);
 
         machine_run(m);
-//        _delay_ms(100);
 
-        //   count++;
+        count++;
     }
 }
 

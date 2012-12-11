@@ -49,7 +49,7 @@ int main(void)
     u32 ledtime=0;
 
     while(1) {
-//        set_motor_state(0,(ledtime++)%5000<2500);
+//        set_motor_state(1,(ledtime++)%5000<2500);
 //        set_led_state((ledtime++)%2500<1200);
 //        if (get_eye_state(0)) set_motor_state(0,1);
 //        else set_motor_state(0,0);

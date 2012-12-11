@@ -61,10 +61,19 @@ extern "C" {
 #define LEYE 25
 #define REYE 26
 
+#ifdef EMU
 #define LEFT_EYE    0x01
 #define RIGHT_EYE   0x02
+#define LED         0x04
 #define RIGHT_MOTOR 0x08
 #define LEFT_MOTOR  0x10
+#else
+#define LEFT_EYE _BV(PB0)
+#define RIGHT_EYE _BV(PB1)
+#define LED _BV(PB2)
+#define RIGHT_MOTOR _BV(PB3)
+#define LEFT_MOTOR _BV(PB4)
+#endif
 
     typedef struct {
         u8 m_active;
