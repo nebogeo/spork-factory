@@ -1,0 +1,3 @@
+avr-gcc -std=c99 -DAVR -Wall -Os -mmcu=attiny85 -o bbcore.elf ../core/bbcore.c
+avr-objcopy --output-target=ihex bbcore.elf bbcore.ihex
+avrdude -c usbtiny -p t85 -e -U flash:w:bbcore.ihex 

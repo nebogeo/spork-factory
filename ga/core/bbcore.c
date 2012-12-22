@@ -316,11 +316,15 @@ int main(void)
     u32 count=0;
     while(1) { 
 
-        if (get_portb_bit(t,LEFT_EYE))
-            set_portb_bit(t, LED, 1);
-        else set_portb_bit(t, LED, 0);
+        if (count<10000) {
+            set_portb_bit(t,LED,count%500<250);
+        } else {
+            if (get_portb_bit(t,LEFT_EYE) ||
+                get_portb_bit(t,RIGHT_EYE))
+                set_portb_bit(t, LED, 0);
+            else set_portb_bit(t, LED, 1);
+        }
 
-//        set_portb_bit(t,LED,count%5000<2500);
 //        set_portb_bit(t,LEFT_MOTOR,count%500<250);
 
         machine_run(m);
