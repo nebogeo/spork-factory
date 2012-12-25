@@ -114,9 +114,9 @@ void thread_run(thread* this, machine *m, u32 clock) {
     } break;
     case DUP: thread_push(this,thread_top(this)); break;
     case SAY: 
-        this->m_dma=1;
         this->m_dma_addr=thread_pop(this);
         this->m_dma_size=thread_pop(this);
+        if (this->m_dma_size>0) this->m_dma=1;
         break;
     default : break;
 	};   

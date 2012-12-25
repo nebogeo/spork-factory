@@ -1,8 +1,11 @@
 ////
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define USE_INTERFACE 1
+#define USE_MATH 1
+
 #include "scheme.h"
 #include "scheme-private.h"
 #define EMU
@@ -65,8 +68,9 @@ pointer sc_machine_say(scheme *sc, pointer args) {
     if (args!=sc->NIL) {
         if(sc->vptr->is_number(sc->vptr->pair_car(args))) {
             unsigned int m=sc->vptr->ivalue(sc->vptr->pair_car(args));
-            return sc->vptr->mk_integer(
-                sc,swarm[m]->m_threads[0].m_dma);
+            unsigned int r=swarm[m]->m_threads[0].m_dma;
+            swarm[m]->m_threads[0].m_dma=0;
+            return sc->vptr->mk_integer(sc,r);
         }
     }
     return sc->NIL;

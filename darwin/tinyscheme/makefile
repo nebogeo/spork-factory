@@ -33,7 +33,7 @@ AR= ar crs
 LD = gcc
 LDFLAGS = -shared
 DEBUG=-g -Wno-char-subscripts -O
-SYS_LIBS= -ldl
+SYS_LIBS= -ldl -lm
 PLATFORM_FEATURES= -DSUN_DL=1
 
 # Cygwin
@@ -41,7 +41,7 @@ PLATFORM_FEATURES= -DSUN_DL=1
 
 
 # Solaris
-#SYS_LIBS= -ldl -lc
+#SYS_LIBS= -ldl -lc -lm
 #Osuf=o
 #SOsuf=so
 #EXE_EXT=
@@ -50,7 +50,7 @@ PLATFORM_FEATURES= -DSUN_DL=1
 #LIBPREFIX = lib
 #OUT = -o $@
 
-FEATURES = $(PLATFORM_FEATURES) -DUSE_DL=1 -DUSE_MATH=0 -DUSE_ASCII_NAMES=0
+FEATURES = $(PLATFORM_FEATURES) -DUSE_DL=1 -DUSE_MATH=1 -DUSE_ASCII_NAMES=0 -DUSE_TRACING=1
 
 OBJS = scheme.$(Osuf) dynload.$(Osuf)
 
