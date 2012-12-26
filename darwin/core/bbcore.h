@@ -88,6 +88,7 @@ extern "C" {
     void thread_run(thread *t, machine *m, u32 clock);
     const u8* thread_get_stack(thread *t);
     const int thread_get_stack_pos(thread *t);
+    const u8 thread_stack_count(thread* this, u8 c);
     u8 thread_is_active(thread *t);
     void thread_set_active(thread *t, u8 s);
     void thread_push(thread *t, u8 data);

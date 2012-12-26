@@ -1,4 +1,18 @@
-////
+// Spork Factory Copyright (C) 2012 David Griffiths
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -19,7 +33,6 @@ unsigned int next_machine=0;
 pointer sc_machine_create(scheme *sc, pointer args) {
     swarm[next_machine]=malloc(sizeof(machine));
     machine_create(swarm[next_machine]);
-    printf("made a machine\n");
     return sc->vptr->mk_integer(sc,next_machine++);
 }
 
@@ -59,6 +72,17 @@ pointer sc_machine_run(scheme *sc, pointer args) {
             for (int i=0; i<c; i++) {
                 machine_run(swarm[m]);
             }
+        }
+    }
+    return sc->NIL;
+}
+
+pointer sc_machine_start(scheme *sc, pointer args) {
+    if (args!=sc->NIL) {
+        if(sc->vptr->is_number(sc->vptr->pair_car(args))) {
+            unsigned int m=sc->vptr->ivalue(sc->vptr->pair_car(args));
+            return sc->vptr->mk_integer(
+                sc,swarm[m]->m_threads[0].m_start);
         }
     }
     return sc->NIL;
@@ -122,6 +146,7 @@ int main(void) {
   SDECL("machine-poke",sc_machine_poke);
   SDECL("machine-run",sc_machine_run);
   SDECL("machine-say",sc_machine_say);
+  SDECL("machine-start",sc_machine_start);
   SDECL("machine-say-addr",sc_machine_say_addr);
   SDECL("machine-say-size",sc_machine_say_size);
 

@@ -1,3 +1,18 @@
+;; Spork Factory Copyright (C) 2012 David Griffiths
+;; 
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU Affero General Public License as
+;; published by the Free Software Foundation, either version 3 of the
+;; License, or (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU Affero General Public License for more details.
+;;
+;; You should have received a copy of the GNU Affero General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 ; --------------------------------------------------------
 ; swarms of processors, amorphous computing style
 ; --------------------------------------------------------
@@ -43,6 +58,7 @@
   (define (_ fn n l)
     (cond ((zero? n) l)  
           (else 
+
            (_ fn (- n 1) (cons (fn (- n 1)) l)))))
   (_ fn n '()))   
 
@@ -54,22 +70,45 @@
 (define (entity-pos e) (list-ref e 0))
 (define (entity-machine e) (list-ref e 1))
 
+(define (make-cluster-pos)
+  (let ((g (grndvec)))
+    (vmul (vector (vx g) (vy g) 0) 100)))
+
+(define (make-line-pos)
+  (let ((line-pos (vector (* (crndf) 300) 0 0))
+        (g (grndvec)))
+    (vadd (vmul (vector (vx g) (vy g) 0) 10) line-pos)))
+
+(define (make-donut-pos)
+  (let* ((g (srndvec))
+         (pos (vmul (vector (vx g) (vy g) 0) 150)))
+    (if (> (vmag pos) 75)
+        pos
+        (make-donut-pos))))
+
 (define (make-swarm n)
   (build-list
    (lambda (i)
      (let ((g (grndvec)))
-       (make-entity (vmul (vector (vx g) (vy g) 0) 100))))
+       (make-entity (make-donut-pos))))
    n))
 
-(define (entity-program e a prog mutation)
-  (cond
-   ((null? prog) 0)
-   (else
-    (machine-poke (entity-machine e) a 
-                  (if (< (random 100) mutation)
-                      (+ (car prog) (* (crndf) 2))
-                      (car prog)))
-    (entity-program e (+ a 1) (cdr prog) mutation))))
+(define (mutate prog mutation)
+  (map
+   (lambda (i)
+     (if (< (random 1000) mutation)
+         (random 256)
+         i))
+   prog))
+
+(define (entity-program e a prog)
+  (let ((m (entity-machine e)))
+    (cond
+     ((null? prog) 0)
+     (else
+      ;; write relative to the current thread reference
+      (machine-poke m (+ a (machine-start m)) (car prog))
+      (entity-program e (+ a 1) (cdr prog))))))
 
 (define (entity-fuzz e c)
   (cond
@@ -131,10 +170,11 @@
      (machine-run (entity-machine e) c))
    s))
 
-(define (make-dma pos addr data) (list pos addr data))
-(define (dma-pos d) (list-ref d 0))
-(define (dma-addr d) (list-ref d 1))
-(define (dma-data d) (list-ref d 2))
+(define (make-dma src pos addr data) (list src pos addr data))
+(define (dma-src d) (list-ref d 0))
+(define (dma-pos d) (list-ref d 1))
+(define (dma-addr d) (list-ref d 2))
+(define (dma-data d) (list-ref d 3))
 
 (define (swarm-listen s fn)
   (let* ((speakers 
@@ -146,16 +186,8 @@
           (map
            (lambda (e)
              (let ((m (entity-machine e)))
-               ;(display (entity-read e 0 10))(newline)
-               ;(disassemble (entity-read e 0 10))
-               (display (entity-machine e))
-               (display " sending ")
-               (disassemble (entity-read 
-                             e 
-                             (machine-say-addr m)
-                             (machine-say-size m)))
-               (newline)
                (make-dma
+                m
                 (entity-pos e)
                 (machine-say-addr m)
                 (entity-read 
@@ -163,21 +195,11 @@
                  (machine-say-addr m)
                  (machine-say-size m)))))
            speakers)))
-    (for-each
-     (lambda (dma)
-       (fn s dma))
+    (foldr
+     (lambda (r dma)
+       (fn s dma r))
+     '()
      dma)))
-
-(define (broadcast s dma)
-  (cond
-   ((null? s) 0)
-   (else
-    (when (< (vdist (dma-pos dma) 
-                    (entity-pos (car s)))
-             20)
-        ;;  (println "recieved by " (number->string (entity-machine (car s))))
-          (entity-program (car s) (dma-addr dma) (dma-data dma) 2))
-    (broadcast (cdr s) dma))))
 
 ;---------------------------------------
 

@@ -84,24 +84,24 @@ void thread_run(thread* this, machine *m, u32 clock) {
 	{
     case NOP: break;
     case ORG: this->m_start=this->m_start+this->m_pc-1; this->m_pc=1; break;
-    case EQU: thread_push(this,thread_pop(this)==thread_pop(this)); break;
+    case EQU: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)==thread_pop(this)); break;
     case JMP: this->m_pc=thread_peek(this,m,this->m_pc++); break;
-    case JMPZ: if (thread_pop(this)==0) this->m_pc=thread_peek(this,m,this->m_pc); else this->m_pc++; break;
+    case JMPZ: if (thread_stack_count(this,1) && thread_pop(this)==0) this->m_pc=thread_peek(this,m,this->m_pc); else this->m_pc++; break;
     case PSHL: thread_push(this,thread_peek(this,m,this->m_pc++)); break;
     case PSH: thread_push(this,thread_peek(this,m,thread_peek(this,m,this->m_pc++))); break;
     case PSHI: thread_push(this,thread_peek(this,m,thread_peek(this,m,thread_peek(this,m,this->m_pc++)))); break;
-    case POP: thread_poke(this,m,thread_peek(this,m,this->m_pc++),thread_pop(this)); break;
-    case POPI: thread_poke(this,m,thread_peek(this,m,thread_peek(this,m,this->m_pc++)),thread_pop(this)); break;
-    case ADD: thread_push(this,thread_pop(this)+thread_pop(this)); break;
-    case SUB: thread_push(this,thread_pop(this)-thread_pop(this)); break;
-    case INC: thread_push(this,thread_pop(this)+1); break;
-    case DEC: thread_push(this,thread_pop(this)-1); break;
-    case AND: thread_push(this,thread_pop(this)&thread_pop(this)); break;
-    case OR: thread_push(this,thread_pop(this)|thread_pop(this)); break;
-    case XOR: thread_push(this,thread_pop(this)^thread_pop(this)); break;
-    case NOT: thread_push(this,~thread_pop(this)); break;
-    case ROR: thread_push(this,thread_pop(this)>>(thread_peek(this,m,this->m_pc++)%8)); break;
-    case ROL: thread_push(this,thread_pop(this)<<(thread_peek(this,m,this->m_pc++)%8)); break;
+    case POP: if (thread_stack_count(this,1)) thread_poke(this,m,thread_peek(this,m,this->m_pc++),thread_pop(this)); break;
+    case POPI: if (thread_stack_count(this,1)) thread_poke(this,m,thread_peek(this,m,thread_peek(this,m,this->m_pc++)),thread_pop(this)); break;
+    case ADD: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)+thread_pop(this)); break;
+    case SUB: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)-thread_pop(this)); break;
+    case INC: if (thread_stack_count(this,1)) thread_push(this,thread_pop(this)+1); break;
+    case DEC: if (thread_stack_count(this,1)) thread_push(this,thread_pop(this)-1); break;
+    case AND: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)&thread_pop(this)); break;
+    case OR: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)|thread_pop(this)); break;
+    case XOR: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)^thread_pop(this)); break;
+    case NOT: if (thread_stack_count(this,1)) thread_push(this,~thread_pop(this)); break;
+    case ROR: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)>>(thread_peek(this,m,this->m_pc++)%8)); break;
+    case ROL: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)<<(thread_peek(this,m,this->m_pc++)%8)); break;
     case PIP: 
     {
         u8 d=thread_peek(this,m,this->m_pc++); 
@@ -112,11 +112,14 @@ void thread_run(thread* this, machine *m, u32 clock) {
         u8 d=thread_peek(this,m,this->m_pc++); 
         thread_poke(this,m,d,thread_peek(this,m,d)-1); 
     } break;
-    case DUP: thread_push(this,thread_top(this)); break;
+    case DUP: if (thread_stack_count(this,1)) thread_push(this,thread_top(this)); break;
     case SAY: 
-        this->m_dma_addr=thread_pop(this);
-        this->m_dma_size=thread_pop(this);
-        if (this->m_dma_size>0) this->m_dma=1;
+        if (!this->m_dma &&
+            thread_stack_count(this,1)) {
+            this->m_dma_addr=this->m_start+thread_pop(this);
+            this->m_dma_size=8;
+            if (this->m_dma_size>0) this->m_dma=1;
+        }
         break;
     default : break;
 	};   
@@ -124,6 +127,10 @@ void thread_run(thread* this, machine *m, u32 clock) {
 
 const u8* thread_get_stack(thread* this) { 
     return this->m_stack; 
+}
+
+const u8 thread_stack_count(thread* this, u8 c) { 
+    return (c-1)<=this->m_stack_pos; 
 }
 
 const int thread_get_stack_pos(thread* this) { 
@@ -152,6 +159,7 @@ u8 thread_pop(thread* this) {
 		this->m_stack_pos--;
 		return ret;
 	}
+    printf("errorr\n");
 	return 0;   
 }
 
