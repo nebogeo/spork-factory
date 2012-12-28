@@ -90,7 +90,7 @@
   (build-list
    (lambda (i)
      (let ((g (grndvec)))
-       (make-entity (make-donut-pos))))
+       (make-entity (make-line-pos))))
    n))
 
 (define (mutate prog mutation)

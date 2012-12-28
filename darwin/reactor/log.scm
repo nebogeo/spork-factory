@@ -38,3 +38,10 @@
   (write l log-file)
   (close-output-port log-file))
 
+(define (output fn d l)
+  (set! log-file (open-output-file (string-append "recording/" fn "-" 
+                                                  (number->string d)
+                                                  ".txt")))
+  (write l log-file)
+  (close-output-port log-file))
+

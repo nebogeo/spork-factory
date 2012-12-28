@@ -51,6 +51,8 @@
 
 (define (run g)
   (swarm-run s 5) ;; run for some cycles
+  ;; output the first machine data
+  (output "machine0" g (entity-read (car s) 0 256))
   (let ((dmas (swarm-listen s broadcast)))
     ;;        (swarm-disassemble s 0 20)
     (display (length dmas))(newline)
