@@ -1,0 +1,6 @@
+An amorphous computing environment that grows code "darwinistically".
+
+core: contains the c code for a processor core (also builds for attiny85)
+reactor : the amorphous programming environment, written in scheme also
+          includes visualisation software using fluxus
+tinyscheme : the scheme interpreter
