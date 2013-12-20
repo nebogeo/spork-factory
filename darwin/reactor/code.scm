@@ -42,11 +42,11 @@
 (define (get-tile grid x y)
     (list-ref (list-ref grid y) x))
 
-(define (set-value grid x y v)
-    (if (< v 24)
+(define (set-value grid x y v arg)
+    (if (not arg)
         (let ((p (get-tile grid x y)))
             (with-primitive (car p)
-                (texture (load-texture "textures/ops.png"))
+                (texture (load-texture "textures/ops-ds.png"))
                 (let* ((vx (modulo v 8))
                         (vy (quotient v 8))
                         (tw (/ 1 8))
@@ -58,7 +58,7 @@
                     (pdata-set! "t" 2 (vector (+ (* tw 0.5) tx) ty 0))
                     (pdata-set! "t" 1 (vector (+ (* tw 0.5) tx) (+ ty th) 0))))
             (with-primitive (cadr p)
-                (texture (load-texture "textures/ops.png"))
+                (texture (load-texture "textures/ops-ds.png"))
                 (let* ((vx (modulo v 8))
                         (vy (quotient v 8))
                         (tw (/ 1 8))
@@ -94,14 +94,26 @@
                     (pdata-set! "t" 0 (vector (+ tx (* tw 0.5)) (+ ty th) 0))
                     (pdata-set! "t" 2 (vector (+ tw tx) ty 0))
                     (pdata-set! "t" 1 (vector (+ tw tx) (+ ty th) 0)))))))
+;; does it need an operand?
+(define (operand? c)
+  (list-ref
+   (list #f #f #f #t #t #t
+         #t #t #t #t #f #f
+         #f #f #f #f #f #f #t
+         #t #t #t #f #f #f #f #f)
+   c))
 
 (define (upload grid code)
-    (foldl
-        (lambda (i r)
-            (set-value grid (modulo r 16) (quotient r 16) i)
-            (+ r 1))
-        0
-        code))
+  (define arg #f)
+  (foldl
+   (lambda (i r)
+     (set-value grid (modulo r 16) (quotient r 16) i arg)
+     (if (and (not arg) (operand? i))
+         (set! arg #t)
+         (set! arg #f))
+     (+ r 1))
+   0
+   code))
 
 (clear)
 (define grid (with-state
@@ -109,18 +121,23 @@
         (hint-unlit)
         (build-grid 16 16)))
 
-(define (animate d)
-    (let ((prog (let* ((f (open-input-file 
-                                (string-append "recording/machine0-" (number->string d) ".txt")))
-                        (r (read f)))
-                    (close-input-port f) r)))
-        (upload grid prog)))
+(upload grid (list  
+23 23 13 22 7 12 17 20 12 23 23 5 0 7 12 3 
+   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+))
 
-(define d 1)
-
-(every-frame
- (begin (animate d)
-    (set! d (+ d 1))))
+;;(define (animate d)
+;    (let ((prog (let* ((f (open-input-file 
+;                                (string-append "recording/machine0-" (number->string d) ".txt")))
+;                        (r (read f)))
+;                    (close-input-port f) r)))
+;        (upload grid prog)));
+;
+;(define d 1)
+;
+;(every-frame
+ ;(begin (animate d)
+   ; (set! d (+ d 1))))
 
 
 

@@ -42,7 +42,7 @@
 (define pip 20)
 (define pdp 21)
 (define dup 22)
-(define say 23)
+(define dma 23)
 
 (define (filter fn l)
   (foldr
@@ -86,17 +86,22 @@
         pos
         (make-donut-pos))))
 
+(define (make-small-cluster-pos)
+  (let ((g (srndvec)))
+    (vmul (vector (vx g) (vy g) 0) 10)))
+
 (define (make-swarm n)
   (build-list
    (lambda (i)
      (let ((g (grndvec)))
-       (make-entity (make-line-pos))))
+       (make-entity (make-small-cluster-pos))))
    n))
+
 
 (define (mutate prog mutation)
   (map
    (lambda (i)
-     (if (< (random 1000) mutation)
+     (if (< (random 10000) mutation)
          (random 256)
          i))
    prog))

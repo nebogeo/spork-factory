@@ -18,7 +18,7 @@
 
 (open-log "recording.txt")
 
-(define s (make-swarm 500))
+(define s (make-swarm 10))
 
 (swarm-fuzz s)
 
@@ -36,7 +36,7 @@
             (< (vdist (dma-pos dma) 
                       (entity-pos (car s)))
                30))
-           (let ((program (mutate (dma-data dma) 5)))
+           (let ((program (mutate (dma-data dma) 50)))
              (entity-program 
               (car s) 
               (dma-addr dma) 
@@ -48,6 +48,9 @@
 ;(disassemble (list 1 23 22 3 1 1 23 22 1 23 22 3 1 1 1 23 22 3 1 1))
 ;(disassemble (list 1 233 230 254 254 235 23 24 230 1 233 230 254 254 235 23 235 0 234 1))
 ;(disassemble (list 1 210 23 108 254 64 235 0 22 3 1 1 210 23 108 254 64 235 0 22))
+
+(entity-program (cadr s) 0 (list org pshl 255 dma 55 66 77))
+
 
 (define (run g)
   (swarm-run s 5) ;; run for some cycles
