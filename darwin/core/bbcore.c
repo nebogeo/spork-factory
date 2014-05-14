@@ -100,8 +100,8 @@ void thread_run(thread* this, machine *m, u32 clock) {
     case OR: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)|thread_pop(this)); break;
     case XOR: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)^thread_pop(this)); break;
     case NOT: if (thread_stack_count(this,1)) thread_push(this,~thread_pop(this)); break;
-    case ROR: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)>>(thread_peek(this,m,this->m_pc++)%8)); break;
-    case ROL: if (thread_stack_count(this,2)) thread_push(this,thread_pop(this)<<(thread_peek(this,m,this->m_pc++)%8)); break;
+    case ROR: if (thread_stack_count(this,1)) thread_push(this,thread_pop(this)>>(thread_peek(this,m,this->m_pc++)%8)); break;
+    case ROL: if (thread_stack_count(this,1)) thread_push(this,thread_pop(this)<<(thread_peek(this,m,this->m_pc++)%8)); break;
     case PIP: 
     {
         u8 d=thread_peek(this,m,this->m_pc++); 
